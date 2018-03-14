@@ -48,7 +48,7 @@ class Article extends Component {
 }
 
 function getFormattedDateFromUnixTime(time) {
-    var T = new Date(time);
+    var T = new Date(time*1000);
     var month = T.getDate();
     var day = T.getDay();
     var year = T.getFullYear();

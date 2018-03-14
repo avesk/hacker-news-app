@@ -37,11 +37,11 @@ class App extends Component {
         return (
             <div className="hacker-news-app">
                 <Header logo={logo} />
+                <SwitchButton />
                 {loading
                     ? <Loading className="loading" loadingText="Loading articles ..." />
                     : <NewsFeed articleIDs={IDs} />
                 }
-                <SwitchButton />
                 <footer>I am a footer</footer>
             </div>
         );

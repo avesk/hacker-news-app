@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Article extends Component {
-
+    // request = 'https://hacker-news.firebaseio.com/v0/item/' + id + '.json?print=pretty';
     render() {
         return(
             <article className="news-article">

@@ -9,10 +9,9 @@ class NewsFeed extends Component {
     }
 
     renderArticles() {
-        // var IDs = this.props.articleIDs;
-        var IDs = [1, 2, 3, 4];
-        console.log(typeof IDs);
+        var IDs = this.props.articleIDs;
         console.log(IDs);
+        IDs =  IDs.slice(0,9);
         var articles = IDs.map((id) =>
             <Article key={id} articleID={id} />
         );

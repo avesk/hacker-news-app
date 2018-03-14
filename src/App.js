@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './header/header';
 import SwitchButton from './buttons/switchButton';
 import NewsFeed from './newsFeed/newsFeed';
+import Loading from './loading';
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,7 +10,7 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {topStoryIDs: {}, storyData: {}};
+        this.state = {topStoryIDs: [], storyData: {}};
     }
 
     componentDidMount() {
@@ -31,17 +32,16 @@ class App extends Component {
 
     render() {
         // var storyIDString = JSON.stringify(this.state.topStoryIDs);
-        var IDs = this.state.topStoryIDs;
-        // IDs = Object.values(IDs);
-        console.log(typeof IDs);
-        console.log(IDs);
-        // IDs = IDs.slice(0, 9);
-        const newsFeed = <NewsFeed articleIDs={IDs} />
+        const IDs = this.state.topStoryIDs;
+        const loading = IDs.length === 0;
         return (
             <div className="hacker-news-app">
-                <Header logo={logo}/>
+                <Header logo={logo} />
+                {loading
+                    ? <Loading className="loading" loadingText="Loading articles ..." />
+                    : <NewsFeed articleIDs={IDs} />
+                }
                 <SwitchButton />
-                {newsFeed}
                 <footer>I am a footer</footer>
             </div>
         );

@@ -1,8 +1,29 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Courier New", Courier, monospace;
 }
+
+.hacker-news-app-header {
+    background-color: #16425B;
+    text-align: center;
+    padding-bottom: 25px;
+    margin-bottom: 20px;
+}
+
+.hacker-news-app-header h1 {
+    font-size: 30px;
+    color: #D9DCD6;
+}
+
+.switchButton{
+    color: #3A7CA5;
+    padding: 7px;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: #D9DCD6;
+}
+
 
 #news-feed{
     display: flex;
@@ -14,5 +35,52 @@ body {
 
 .news-article {
     flex: 1;
+    text-align: justify;
     padding: 2%;
+    margin: 5px;
+    background-color: #16425B;
+    border-radius: 5px;
+}
+
+.news-article:hover {
+    background-color: #2F6690;
+}
+
+.news-article a{
+    color: #D9DCD6;
+}
+
+.news-article p{
+    color: #D9DCD6;
+}
+
+.news-article a:hover {
+    color: #81C3D7;
+    text-decoration: none;
+}
+
+.hacker-news-app-footer {
+    padding: 7%;
+    background-color: #D9DCD6;
+}
+
+.hacker-news-app-footer p {
+    flex: 1;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+}
+
+.hacker-news-app-footer a:hover {
+    text-decoration: none;
+}
+
+.github-repo img {
+    padding-left: 4px;
+    height: 4%;
+    width: 4%;
+}
+
+.App-title {
+
 }

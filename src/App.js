@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Header from './header/header';
+import Footer from './footer/footer';
 import SwitchButton from './buttons/switchButton';
 import NewsFeed from './newsFeed/newsFeed';
 import Loading from './loading';
-import logo from './logo.svg';
+import hackernewslogo from './hackernewslogo.jpg';
 import './App.css';
 
 class App extends Component {
@@ -42,15 +43,16 @@ class App extends Component {
         // var storyIDString = JSON.stringify(this.state.topStoryIDs);
         const IDs = this.state.topStoryIDs;
         const loading = IDs.length === 0;
+        const siteTitle = 'Welcome to The Hacker News Feed App';
         return (
             <div className="hacker-news-app">
-                <Header logo={logo} />
+                <Header title={siteTitle} logo={hackernewslogo} />
                 <SwitchButton onBtnClick={this.onNewsSwitch}/>
                 {loading
                     ? <Loading className="loading" loadingText="Loading articles ..." />
                     : <NewsFeed articleIDs={IDs} />
                 }
-                <footer>I am a footer</footer>
+                <Footer />
             </div>
         );
     }

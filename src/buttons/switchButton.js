@@ -19,7 +19,7 @@ class SwitchButton extends Component {
         const newsMode = this.state.mode;
         const btnTxt = newsMode === 'newstories' ? 'Top 10 Most Popular Stories' : 'Top 10 Newest Stories';
         return(
-            <button onClick={this.handleChange} id="story-switch-btn">{btnTxt}</button>
+            <button className="switchButton" onClick={this.handleChange} id="story-switch-btn">{btnTxt}</button>
         );
     }
 

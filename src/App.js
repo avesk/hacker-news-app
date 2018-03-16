@@ -10,17 +10,20 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {topStoryIDs: [], storyData: {}};
+        this.state = {topStoryIDs: [], storyData: {}, mode: 'newstories'};
+        this.onNewsSwitch = this.onNewsSwitch.bind(this);
     }
 
     componentDidMount() {
-        this.getTopStoryIDs()
+        var storyMode = this.state.mode;
+        this.getTopStoryIDs(storyMode);
     }
 
-    getTopStoryIDs() {
+    getTopStoryIDs(mode) {
         var self = this;
         var storyDataArr = []
-        fetch('https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty')
+        var request = 'https://hacker-news.firebaseio.com/v0/' + mode + '.json?print=pretty';
+        fetch(request)
         .then(function(response) {
             return response.json();
         })
@@ -30,6 +33,11 @@ class App extends Component {
         })
     }
 
+    onNewsSwitch(btnmode) {
+        this.setState({mode: btnmode});
+        this.getTopStoryIDs(btnmode);
+    }
+
     render() {
         // var storyIDString = JSON.stringify(this.state.topStoryIDs);
         const IDs = this.state.topStoryIDs;
@@ -37,7 +45,7 @@ class App extends Component {
         return (
             <div className="hacker-news-app">
                 <Header logo={logo} />
-                <SwitchButton />
+                <SwitchButton onBtnClick={this.onNewsSwitch}/>
                 {loading
                     ? <Loading className="loading" loadingText="Loading articles ..." />
                     : <NewsFeed articleIDs={IDs} />

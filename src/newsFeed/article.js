@@ -38,7 +38,7 @@ class Article extends Component {
 
         return(
             <article className="news-article">
-                <h2 className="title"><a href={url}>{title}</a></h2>
+                <h3 className="title"><a href={url}>{title}</a></h3>
                 <p className="time-stamp">{time}</p>
                 <p className="author">{by_author}</p>
             </article>

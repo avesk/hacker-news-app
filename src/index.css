@@ -4,16 +4,22 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 
+.Hacker-logo {
+    height: 10%;
+    width: 10%;
+}
+
 .hacker-news-app-header {
-    background-color: #16425B;
+    background-color: #2F6690;
     text-align: center;
-    padding-bottom: 25px;
+    padding-bottom: 35px;
     margin-bottom: 20px;
 }
 
 .hacker-news-app-header h1 {
-    font-size: 30px;
+    font-size: 35px;
     color: #D9DCD6;
+    padding: 15px;
 }
 
 .switchButton{
@@ -25,12 +31,13 @@ body {
 }
 
 
-#news-feed{
+#news-feed {
     display: flex;
     flex-direction: column;
     flex-basis: auto;
     margin-left: 14%;
     margin-right: 14%;
+    margin-top: 15px;
 }
 
 .news-article {
@@ -81,6 +88,14 @@ body {
     width: 4%;
 }
 
-.App-title {
+@media only screen and (max-width: 767px) {
+    #news-feed h3 {
+        font-size: 18px;
+    }
+}
 
+@media only screen and (max-width: 482px) {
+    #news-feed h3 {
+        font-size: 15px;
+    }
 }
